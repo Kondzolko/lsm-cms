@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::DeligatedAuthorities::SessionsController < Devise::SessionsController
+  layout 'devise/deligated_authority'
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

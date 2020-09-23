@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::DeligatedAuthorities::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  layout 'devise/deligated_authority'
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

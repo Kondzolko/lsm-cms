@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::DeligatedAuthorities::PasswordsController < Devise::PasswordsController
+  layout 'devise/deligated_authority'
   # GET /resource/password/new
   # def new
   #   super

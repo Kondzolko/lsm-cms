@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::Underwriters::PasswordsController < Devise::PasswordsController
+  layout 'devise/underwriter'
   # GET /resource/password/new
   # def new
   #   super

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::DeligatedAuthorities::ConfirmationsController < Devise::ConfirmationsController
+  layout 'devise/deligated_authority'
   # GET /resource/confirmation/new
   # def new
   #   super

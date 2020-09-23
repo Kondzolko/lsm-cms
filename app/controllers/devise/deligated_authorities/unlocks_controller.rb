@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Devise::DeligatedAuthorities::UnlocksController < Devise::UnlocksController
+class Devise::DeligatedAuthorities::UnlocksController < Devise::UnlocksController  layout 'devise/deligated_authority'
+  layout 'devise/deligated_authority'
   # GET /resource/unlock/new
   # def new
   #   super

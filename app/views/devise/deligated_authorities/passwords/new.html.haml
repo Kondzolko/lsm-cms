@@ -1,0 +1,19 @@
+.p-3.w-100
+  .mb-3.text-center
+    = link_to root_path, class: 'link-fx text-success font-w700 font-size-h1' do
+      %span.text-dark LSM
+      %span.text-success DA
+    %p.text-uppercase.font-w700.font-size-sm.text-muted Forgot your password?
+
+  .row.no-gutters.justify-content-center
+    .col-sm-8.col-xl-6
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "email" }
+        .form-actions.pb-2
+          = f.button :submit, "Reset password", class: 'btn btn-block btn-hero-lg btn-hero-success'
+      = render "devise/deligated_authorities/shared/links"

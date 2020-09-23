@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::Underwriters::ConfirmationsController < Devise::ConfirmationsController
+  layout 'devise/underwriter'
   # GET /resource/confirmation/new
   # def new
   #   super

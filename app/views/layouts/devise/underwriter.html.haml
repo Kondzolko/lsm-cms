@@ -8,4 +8,8 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    #page-container
+      %main#main-container
+        .row.no-gutters.justify-content-center
+          .hero-static.col-md-6.d-flex.align-items-center.bg-white
+            = yield

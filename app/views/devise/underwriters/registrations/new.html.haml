@@ -1,0 +1,25 @@
+.p-3.w-100
+  .mb-3.text-center
+    = link_to root_path, class: 'link-fx text-success font-w700 font-size-h1' do
+      %span.text-dark LSM
+      %span.text-success UW
+    %p.text-uppercase.font-w700.font-size-sm.text-muted Sign up
+  .row.no-gutters.justify-content-center
+    .col-sm-8.col-xl-6
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "email" }
+          = f.input :password,
+            required: true,
+            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+            input_html: { autocomplete: "new-password" }
+          = f.input :password_confirmation,
+            required: true,
+            input_html: { autocomplete: "new-password" }
+        .form-actions.pb-2
+          = f.button :submit, "Sign up", class: 'btn btn-block btn-hero-lg btn-hero-success'
+      = render "devise/underwriters/shared/links"

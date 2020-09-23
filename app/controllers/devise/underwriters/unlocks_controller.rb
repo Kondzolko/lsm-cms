@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::Underwriters::UnlocksController < Devise::UnlocksController
+  layout 'devise/underwriter'
   # GET /resource/unlock/new
   # def new
   #   super

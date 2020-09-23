@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::Underwriters::SessionsController < Devise::SessionsController
+  layout 'devise/underwriter'
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

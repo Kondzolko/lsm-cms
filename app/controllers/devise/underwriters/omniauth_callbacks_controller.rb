@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Devise::Underwriters::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  layout 'devise/underwriter'
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
