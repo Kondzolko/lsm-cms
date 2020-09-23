@@ -1,6 +1,14 @@
-%h1 LSM
-%ul
-  %li
-    = link_to t('underwriter_sing_in'), new_underwriter_session_path
-  %li
-    = link_to t('deligated_authorities_sing_in'), new_deligated_authority_session_path
+.hero-static.bg-white
+  .content.content-full
+    .px-3.py-5
+      .mb-5.text-center
+        = link_to root_path, class: 'link-fx font-w700 font-size-h1' do
+          %span.text-dark LSM
+          %span.text-primary CMS
+      .row.no-gutters.d-flex.justify-content-center
+        .col-md-6.col-xl-4
+          %ul.list-group.push
+            %li.list-group-item.d-flex.justify-content-between.align-items-center
+              = link_to t('underwriter_sing_in'), new_underwriter_session_path
+            %li.list-group-item.d-flex.justify-content-between.align-items-center
+              = link_to t('deligated_authorities_sing_in'), new_deligated_authority_session_path

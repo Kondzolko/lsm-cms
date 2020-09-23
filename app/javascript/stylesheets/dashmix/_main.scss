@@ -1,0 +1,100 @@
+// Bootstrap functions
+@import '~bootstrap/scss/functions';
+
+// User variables (your own variable overrides)
+@import '../custom/variables';
+
+// Custom Bootstrap variables overrides
+@import 'variables-bootstrap';
+
+// Bootstrap variables
+@import '~bootstrap/scss/variables';
+
+// Bootstrap mixins
+@import '~bootstrap/scss/mixins';
+
+// Custom mixins and Bootstrap overrides
+@import 'mixins';
+
+// Bootstrap components
+//@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/code';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/nav';
+//@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/breadcrumb';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/jumbotron';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/progress';
+@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/toasts';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+//@import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/print';
+
+// Custom variables
+@import 'variables';
+@import 'variables-themes';
+
+// Extend Bootstrap styles and override the ones..
+// ..we can't alter with the provided variables
+@import 'reboot';
+@import 'type';
+@import 'grid';
+@import 'tables';
+@import 'forms';
+@import 'buttons';
+@import 'transitions';
+@import 'dropdown';
+@import 'input-group';
+@import 'custom-forms';
+@import 'nav';
+@import 'breadcrumb';
+@import 'pagination';
+@import 'badge';
+@import 'modal';
+@import 'print';
+
+// Custom layout
+@import 'layout';
+@import 'header';
+@import 'sidebar';
+@import 'side-overlay';
+@import 'layout-variations';
+@import 'hero';
+@import 'block';
+
+// Custom components
+@import 'page-loader';
+@import 'nav-main';
+@import 'images';
+@import 'lists';
+@import 'item';
+@import 'overlay';
+@import 'timeline';
+@import 'ribbon';
+
+// Utilities
+@import 'utilities';
+
+@import '../custom/main';
