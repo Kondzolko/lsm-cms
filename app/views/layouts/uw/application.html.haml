@@ -2,10 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title LsmCms
+    %title LSM UW
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'uw/application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'uw/application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    #page-container.sidebar-o.side-scroll.page-header-fixed.page-header-dark
+      = render partial: 'uw/shared/nav'
+      = render partial: 'uw/shared/header'
+      %main#main-container
+        .row.no-gutters.flex-md-10-auto
+          .col-md-12.col-lg-12.col-xl-12.order-md-0.bg-body-dark
+            .content
+              = yield
+      = render partial: 'uw/shared/footer'

@@ -1,0 +1,52 @@
+%header#page-header
+  .content-header
+    .d-flex.align-items-center
+      %button.btn.btn-dual.mr-1.d-lg-none{"data-action" => "sidebar_toggle", "data-toggle" => "layout", :type => "button"}
+        %i.fa.fa-fw.fa-bars
+      -#%button.btn.btn-dual.d-lg-none{"data-action" => "header_search_on", "data-toggle" => "layout", :type => "button"}
+        %i.fa.fa-fw.fa-search
+        %span.ml-1.d-none.d-sm-inline-block Search...
+      -#%form.d-none.d-lg-inline-block.ml-1{:action => "be_pages_generic_search.html", :method => "POST"}
+        %input#page-header-search-input-full.form-control.border-0.rounded{:name => "page-header-search-input-full", :placeholder => "Search All Files..", :style => "min-width: 320px;", :type => "text"}/
+    .d-none.d-lg-flex.align-items-center
+      %ul.nav-main.nav-main-horizontal.nav-main-hover
+        %li.nav-main-item
+          %a.nav-main-link
+            %span.nav-main-link-name Home
+        %li.nav-main-item
+          %a.nav-main-link
+            %span.nav-main-link-name Notifications
+        %li.nav-main-item
+          %a.nav-main-link
+            %span.nav-main-link-name Settings
+      .dropdown.d-inline-block
+        %button#page-header-user-dropdown.btn.btn-dual{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          %span.d-none.d-lg-inline.mx-1 ruby.r@example.com
+          %i.fa.fa-fw.fa-angle-down.ml-1
+        .dropdown-menu.dropdown-menu-right.dropdown-menu-lg.p-0.overflow-hidden{"aria-labelledby" => "page-header-user-dropdown"}
+          .row.no-gutters
+            .col-5.d-flex.align-items-center.justify-content-center.bg-image.p-2{:style => "background-image: url('assets/media/photos/photo10.jpg');"}
+              %img.img-avatar.img-avatar96.img-avatar-thumb{:alt => "", :src => "assets/media/avatars/avatar1.jpg"}/
+            .col-7.p-2.font-size-sm
+              %a.dropdown-item.font-w600{:href => "be_pages_generic_profile.html"}
+                %i.fa.fa-fw.fa-user-circle.mr-1
+                Lisa Doe
+              %a.dropdown-item{:href => "javascript:void(0)"}
+                %i.fa.fa-fw.fa-pencil-alt.mr-1
+                Edit My Profile
+              .dropdown-divider{:role => "separator"}
+              %a.dropdown-item{:href => "op_auth_signin.html"}
+                %i.fa.fa-fw.fa-sign-out-alt.mr-1
+                Sing Out
+  -##page-header-search.overlay-header.bg-header-dark
+    .content-header
+      %form.w-100{:action => "be_pages_generic_search.html", :method => "POST"}
+        .input-group
+          .input-group-prepend
+            %button.btn.btn-danger{"data-action" => "header_search_off", "data-toggle" => "layout", :type => "button"}
+              %i.fa.fa-fw.fa-times-circle
+          %input#page-header-search-input.form-control.border-0{:name => "page-header-search-input", :placeholder => "Search...", :type => "text"}/
+  #page-header-loader.overlay-header.bg-primary-darker
+    .content-header
+      .w-100.text-center
+        %i.fa.fa-fw.fa-2x.fa-sun.fa-spin.text-white
