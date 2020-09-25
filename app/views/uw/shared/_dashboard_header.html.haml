@@ -1,5 +1,6 @@
 %header#page-header
   .content-header
+
     .d-flex.align-items-center
       %button.btn.btn-dual.mr-1.d-lg-none{"data-action" => "sidebar_toggle", "data-toggle" => "layout", :type => "button"}
         %i.fa.fa-fw.fa-bars
@@ -8,6 +9,11 @@
         %span.ml-1.d-none.d-sm-inline-block Search...
       -#%form.d-none.d-lg-inline-block.ml-1{:action => "be_pages_generic_search.html", :method => "POST"}
         %input#page-header-search-input-full.form-control.border-0.rounded{:name => "page-header-search-input-full", :placeholder => "Search All Files..", :style => "min-width: 320px;", :type => "text"}/
+      .font-w600.text-white.tracking-wide
+        %span.smini-visible
+          UW
+        %span.smini-hidden
+          UW
     .d-none.d-lg-flex.align-items-center
       %ul.nav-main.nav-main-horizontal.nav-main-hover
         %li.nav-main-item

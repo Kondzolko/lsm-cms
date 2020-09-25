@@ -1,3 +1,107 @@
-.block.block-bordered.block-rounded
-  .block-content
-    UW
+
+.row.mb-4
+  .col-4
+    %input#dm-projects-search.form-control.border-left-0{:name => "dm-projects-search", :placeholder => "Trading name, Application reference or UMR", :type => "text"}/
+  .col-4
+    %button.btn.btn-primary.px-6 Search
+  .col-4
+    = link_to 'Create New Coverholder', '#', class: 'btn btn-primary float-right'
+.row
+  .col-4
+    .block.block-rounded
+      .block-header
+        .flex-fill.font-size-sm.font-w600
+          Follow Ups
+        .block-options
+          .dropdown
+      .block-content.border-top.pt-1
+        .row.gutters-tiny
+          .col-6
+            .font-size-sm View
+            .font-size-sm.text-default
+              Tasks
+              %i.fa.fa-chevron-down.ml-1
+
+          .col-6
+            .font-size-sm Sort by
+            .font-size-sm.text-default
+              Due date
+              %i.fa.fa-chevron-down.ml-1
+      .block-content.border-top
+        %table.table.table-borderless.table-vcenter
+          %tr
+            %td
+              %block.block-rounded
+                %block-content
+                  %p.font-size-sm.text-muted.float-sm-right
+                    3 hours ago
+                  %h4.font-size-base.text-muted
+                    Acend Inc
+                %block-content
+                  %h4.font-size-base.text-primary.mb-0
+                    Complete CPQ
+                  %p.pb-3.border-bottom
+                    Acend Inc. UAV Contract
+
+  .col-4
+    .block.block-rounded
+      .block-header
+        .flex-fill.font-size-sm.font-w600
+          Contracts
+        .block-options
+          .dropdown
+            %span{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              %i.fa.fa-chevron-down
+      .block-content.border-top.pt-1
+        .row.gutters-tiny
+          .col-6
+            .font-size-sm View
+            .font-size-sm.text-default
+              Initial Contracts
+              %i.fa.fa-chevron-down.ml-1
+
+          .col-6
+            .font-size-sm Filter
+            .font-size-sm.text-default
+              In Progress
+              %i.fa.fa-chevron-down.ml-1
+      .block-content.border-top
+        %table.table.table-borderless.table-vcenter
+          %tr
+            %td
+              %block.block-rounded
+                %block-content
+                  %p.font-size-sm.text-muted.float-sm-right.mb-0
+                    In Progress
+                  %h4.font-size-base.text-muted.mb-2
+                    Burns & Wilcox
+                %block-content
+                  %h4.font-size-base.text-primary.mb-2
+                    Burns & Wilcox Fire & Casualty Contract
+                  %p.pb-3.border-bottom.text-muted.font-size-sm
+                    Expiring date: 01/01/2021
+  .col-4
+    .block.block-rounded
+      .block-header
+        .flex-fill.font-size-sm.font-w600
+          Coverholders
+        .block-options
+          .dropdown
+      .block-content.border-top.pt-1
+        .row.gutters-tiny
+          .col-6
+            .font-size-sm View
+            .font-size-sm.text-default
+              Pending Approval
+              %i.fa.fa-chevron-down.ml-1
+
+      .block-content.border-top
+        %table.table.table-borderless.table-vcenter
+          %thead
+            %tr
+              %th
+                1 Listed
+          %tbody
+            %tr
+              %td
+                = link_to 'Norfolk Southern', '#'
