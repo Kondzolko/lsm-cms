@@ -5,9 +5,9 @@
         .step.mr-3.active.ml-5
           %span.bs-stepper-circle 1
         .bs-stepper-line
-        .step.ml-3.mr-6
+        .step.ml-3.mr-6.active
           %span.bs-stepper-circle 2
       .block-content.border-bottom.font-weight-bold.font-size-h4
-        Add Coverholder Basic Info
+        Edit Registered Address
       .block-content
-        = render partial: 'uw/coverholders/form', locals: { coverholder: @resource}
+        = render partial: 'uw/registered_addresses/form', locals: { registered_address: @resource}

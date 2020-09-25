@@ -6,7 +6,7 @@ class Uw::CoverholdersController < Uw::ApplicationController
     authorize(@resource)
     result = Uw::Coverholders::Organizers::CreateCoverholder.call(coverholder: @resource)
     if result.success?
-      redirect_to uw_root_path(coverholder: @resource)
+      redirect_to new_uw_coverholder_registered_address_path(coverholder_id: @resource.id)
     else
       flash[:alert] = "Can't create new coverholder"
       puts result.inspect
@@ -19,7 +19,7 @@ class Uw::CoverholdersController < Uw::ApplicationController
     authorize @resource
     result = Uw::Coverholders::Organizers::UpdateCoverholder.call(coverholder: @resource, attributes: resource_params)
     if result.success?
-      redirect_to uw_root_path(coverholder: @coverholder)
+      redirect_to new_uw_coverholder_registered_address_path(coverholder_id: @resource.id)
     else
       flash[:alert] = "Can't update coverholder"
       render 'edit'

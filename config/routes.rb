@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   namespace :uw do
     root to: 'dashboard#index'
-    resources :coverholders
+    resources :coverholders do
+      resources :registered_addresses
+    end
   end
 end

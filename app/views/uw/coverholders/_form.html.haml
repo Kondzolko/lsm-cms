@@ -1,3 +1,6 @@
 = simple_form_for [:uw, coverholder] do |f|
   = f.input :legal_entity_name
-  = f.submit
+  .form-group
+    = f.submit 'Next', class: 'btn btn-success'
+  .form-actions
+    = link_to 'Cancel', uw_root_path
