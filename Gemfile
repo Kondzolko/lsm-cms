@@ -40,5 +40,6 @@ end
 
 gem 'devise'
 gem 'haml-rails'
+gem 'interactor-rails'
 gem 'pundit'
 gem 'simple_form'

@@ -95,6 +95,10 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
+    interactor-rails (2.2.1)
+      interactor (~> 3.0)
+      rails (>= 4.2)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     listen (3.2.1)
@@ -207,6 +211,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   haml-rails
+  interactor-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

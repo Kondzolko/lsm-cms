@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_175756) do
+ActiveRecord::Schema.define(version: 2020_09_25_175759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coverholders", force: :cascade do |t|
+    t.string "legal_entity_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "deligated_authorities", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,6 +45,34 @@ ActiveRecord::Schema.define(version: 2020_09_23_175756) do
     t.index ["email"], name: "index_deligated_authorities_on_email", unique: true
     t.index ["reset_password_token"], name: "index_deligated_authorities_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_deligated_authorities_on_unlock_token", unique: true
+  end
+
+  create_table "registered_addresses", force: :cascade do |t|
+    t.bigint "coverholder_id"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "zip"
+    t.string "phone"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coverholder_id"], name: "index_registered_addresses_on_coverholder_id"
+  end
+
+  create_table "trading_location_addresses", force: :cascade do |t|
+    t.bigint "coverholder_id"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "zip"
+    t.string "phone"
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coverholder_id"], name: "index_trading_location_addresses_on_coverholder_id"
   end
 
   create_table "underwriters", force: :cascade do |t|
