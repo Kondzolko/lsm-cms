@@ -1,0 +1,19 @@
+.modal{:style => "display:block", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title Participating Underwriter
+        %button.close{"data-reflex" => "click->ParticipatingUnderwriterReflex#default_reflex", :type => "button"}
+          %span ×
+      .modal-body
+        = simple_form_for [:uw, participating_underwriter], url: '#', html: { data: { reflex: "submit->ParticipatingUnderwriterReflex#submit" } } do |f|
+          - if deal_id
+            = f.input :deal_id, as: :hidden, input_html: { value: deal_id }
+          - else
+            = f.association :deal, label_method: :id, value_method: :id, include_blank: false
+          - if underwriter_id
+            = f.input :underwriter_id, as: :hidden, input_html: { value: underwriter_id }
+          - else
+            = f.association :underwriter, label_method: :email, value_method: :id, include_blank: false
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-link{"data-reflex" => "click->ParticipatingUnderwriterReflex#default_reflex", :type => "button"} Cancel

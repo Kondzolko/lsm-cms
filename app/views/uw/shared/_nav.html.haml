@@ -13,14 +13,14 @@
     .content-side
       %ul.nav-main
         %li.nav-main-item
-          = link_to '#', class: 'nav-main-link active' do
+          = link_to overview_uw_coverholder_deal_path(coverholder_id: @resource.coverholder_id, id: @resource.id), class: 'nav-main-link' do
             %span.nav-main-link-name Overview
         %li.nav-main-item
-          = link_to '#', class: 'nav-main-link' do
+          = link_to general_info_uw_coverholder_deal_path(coverholder_id: @resource.coverholder_id, id: @resource.id), class: 'nav-main-link' do
             %span.nav-main-link-name General Info
         %li.nav-main-item
-          = link_to '#', class: 'nav-main-link' do
+          = link_to contract_details_uw_coverholder_deal_path(coverholder_id: @resource.coverholder_id, id: @resource.id), class: 'nav-main-link' do
             %span.nav-main-link-name Contract Details
         %li.nav-main-item
-          = link_to '#', class: 'nav-main-link' do
+          = link_to icra_uw_coverholder_deal_path(coverholder_id: @resource.coverholder_id, id: @resource.id), class: 'nav-main-link' do
             %span.nav-main-link-name ICRA

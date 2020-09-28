@@ -18,3 +18,5 @@ require('channels')
 
 import 'controllers'
 import '../stylesheets/application'
+
+import "controllers"

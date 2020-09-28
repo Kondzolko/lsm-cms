@@ -1,0 +1,7 @@
+.row.mb-1
+  .col.justify-content-start
+    = trading_name.name
+  .col.justify-content-end
+    %a{class: 'float-right', href: '#',  data: { reflex: "click->TradingNameReflex#destroy", id: trading_name.id } } Delete
+    %a{class: 'float-right mr-2', href: '#',  data: { reflex: "click->TradingNameReflex#edit", id: trading_name.id } } Edit
+

@@ -32,5 +32,6 @@ module LsmCms
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.action_mailer.default_url_options = { host: ENV.fetch('HOSTNAME'), port: ENV.fetch('PORT') }
+    config.action_cable.mount_path = '/websocket'
   end
 end

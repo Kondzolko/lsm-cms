@@ -1,0 +1,19 @@
+.row.justify-content-md-center
+  .col-md-5
+    .block.block-rounded.p-3
+      .block-header
+        .step.mr-3.active.ml-5
+          %span.bs-stepper-circle 1
+        .bs-stepper-line
+        .step.ml-3.mr-6.active
+          %span.bs-stepper-circle 2
+      .block-content.border-bottom.font-weight-bold.font-size-h4
+        Add Registered Address
+      .block-content
+        = render partial: 'uw/registered_addresses/form', locals: { registered_address: @resource}
+      .block-content
+        -#.form-group
+          %span{data: { reflex: "click->TradingLocationAddressReflex#new" } } Add Trading Location Address
+        .form_actions
+          = link_to 'Back', edit_uw_coverholder_path(@resource.coverholder_id)
+      = render partial: 'uw/trading_location_addresses/modal_form', locals: {trading_location_address: @trading_location_address} if @trading_location_address

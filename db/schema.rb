@@ -10,15 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_175759) do
+ActiveRecord::Schema.define(version: 2020_09_28_180502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "coverholder_id"
+    t.string "name"
+    t.string "email"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coverholder_id"], name: "index_contacts_on_coverholder_id"
+  end
 
   create_table "coverholders", force: :cascade do |t|
     t.string "legal_entity_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "deal_infos", force: :cascade do |t|
+    t.bigint "deal_id"
+    t.integer "lsm_platform_type"
+    t.boolean "has_davies_group_letter"
+    t.boolean "has_binding_authority_agreement_broker_name"
+    t.string "broker_contact_name"
+    t.string "broker_existing_binder_portfolio"
+    t.string "lsm_new_products"
+    t.text "ownership_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deal_id"], name: "index_deal_infos_on_deal_id"
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.bigint "coverholder_id"
+    t.bigint "underwriter_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coverholder_id"], name: "index_deals_on_coverholder_id"
+    t.index ["underwriter_id"], name: "index_deals_on_underwriter_id"
   end
 
   create_table "deligated_authorities", force: :cascade do |t|
@@ -47,6 +81,15 @@ ActiveRecord::Schema.define(version: 2020_09_25_175759) do
     t.index ["unlock_token"], name: "index_deligated_authorities_on_unlock_token", unique: true
   end
 
+  create_table "participating_underwriters", force: :cascade do |t|
+    t.bigint "underwriter_id"
+    t.bigint "deal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deal_id"], name: "index_participating_underwriters_on_deal_id"
+    t.index ["underwriter_id"], name: "index_participating_underwriters_on_underwriter_id"
+  end
+
   create_table "registered_addresses", force: :cascade do |t|
     t.bigint "coverholder_id"
     t.string "country"
@@ -73,6 +116,14 @@ ActiveRecord::Schema.define(version: 2020_09_25_175759) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coverholder_id"], name: "index_trading_location_addresses_on_coverholder_id"
+  end
+
+  create_table "trading_names", force: :cascade do |t|
+    t.string "name"
+    t.bigint "coverholder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coverholder_id"], name: "index_trading_names_on_coverholder_id"
   end
 
   create_table "underwriters", force: :cascade do |t|

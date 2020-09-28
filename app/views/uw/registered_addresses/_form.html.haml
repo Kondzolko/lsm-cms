@@ -1,4 +1,4 @@
-= simple_form_for [:uw, :coverholder, registered_address] do |f|
+= simple_form_for [:uw, :coverholder, registered_address], url: uw_coverholder_registered_address_path do |f|
   = f.input :country, as: :string
   = f.input :address_line_1
   = f.input :address_line_2
@@ -10,8 +10,4 @@
       = f.input :zip
   = f.input :phone
   .form-group
-    = f.submit 'Next', class: 'btn btn-success'
-  .form-group
-    = link_to 'Cancel', uw_root_path
-  .form_actions
-    = link_to 'Back', edit_uw_coverholder_path(registered_address.coverholder_id)
+    = f.submit 'Save', class: 'btn btn-success'

@@ -1,0 +1,11 @@
+.row
+  .col-6
+    .block
+      .block-header
+      .block-content
+        = render partial: 'uw/deal_infos/form', locals: { deal_info: @deal_info }
+= render partial: 'uw/contacts/modal_form', locals: {contact: @contact} if @contact
+= render partial: 'uw/coverholders/modal_form', locals: {coverholder: @coverholder} if @coverholder
+= render partial: 'uw/trading_names/modal_form', locals: {trading_name: @trading_name} if @trading_name
+= render partial: 'uw/trading_location_addresses/modal_form', locals: {trading_location_address: @trading_location} if @trading_location
+= render partial: 'uw/participating_underwriters/modal_form', locals: {participating_underwriter: @participating_underwriter, deal_id: @resource.id, underwriter_id: nil} if @participating_underwriter

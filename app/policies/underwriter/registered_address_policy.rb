@@ -15,7 +15,7 @@ class Underwriter::RegisteredAddressPolicy
   end
 
   def create?
-    resource.coverholder.registered_addresses.count == 0
+    resource.coverholder.registered_address.present?
   end
 
   def new?

@@ -25,8 +25,17 @@ Rails.application.routes.draw do
 
   namespace :uw do
     root to: 'dashboard#index'
-    resources :coverholders do
-      resources :registered_addresses
+    resources :coverholders, only: [:show, :new, :update, :edit, :destroy, :create] do
+      resource  :registered_address, only: [:new, :show, :update, :create]
+      resources :trading_location_addresses, only: [:index, :update, :create, :destroy]
+      resources :deals, only: [:create] do
+        member do
+          get 'overview'
+          get 'general-info'
+          get 'contract-details'
+          get 'icra'
+        end
+      end
     end
   end
 end

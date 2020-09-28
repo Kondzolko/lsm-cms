@@ -1,0 +1,12 @@
+.modal{:style => "display:block", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title Coverholder Trading Name
+        %button.close{"data-reflex" => "click->TradingNameReflex#default_reflex", :type => "button"}
+          %span ×
+      .modal-body
+        = simple_form_for [:uw, :coverholder, trading_name], url: '#', html: { data: { reflex: "submit->TradingNameReflex#submit", id: trading_name.id, coverholder_id: trading_name.coverholder_id } } do |f|
+          = f.input :name
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-link{"data-reflex" => "click->TradingNameReflex#default_reflex", :type => "button"} Cancel

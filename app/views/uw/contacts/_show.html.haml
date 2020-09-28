@@ -1,0 +1,7 @@
+%address.font-size-sm
+  = contact.name
+  %br
+  = contact.email
+  %br
+  %a{href: '#',  data: { reflex: "click->ContactReflex#edit", id: contact.id } } Edit
+  %a{href: '#',  data: { reflex: "click->ContactReflex#destroy", id: contact.id } } Delete

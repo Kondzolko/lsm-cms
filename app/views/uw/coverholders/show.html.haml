@@ -1,0 +1,45 @@
+.row
+  .col-12
+    .block
+      .block-header
+        %div
+          %h4.block-title= @resource.legal_entity_name
+          %small Pending approval
+        .block-options
+          = simple_form_for [:uw, @resource, @resource.deals.build] do |f|
+            = f.submit 'Start Approval Process', class: 'btn btn-success'
+.row
+  .col-6
+    .block
+      .block-header
+        Contracts
+      .block-content
+        Coverholder can't have any contract until Approval Process ends.
+  .col-6
+    .row
+      .col-6
+        .block
+          .block-header
+            Locations
+          .block-content
+            %b Registered address
+            = render partial: 'uw/registered_addresses/show', locals: {address: @resource.registered_address}
+          - if @resource.trading_location_addresses.length > 0
+            .block-content
+              %b Trading location(s)
+              = render partial: 'uw/trading_location_addresses/show', collection: @resource.trading_location_addresses, as: :address
+          .block-content
+            %a{href: '#',  data: { reflex: "click->NewCoverholderReflex#new_trading_location", coverholder_id: @resource.id } } + Add new
+      .col-6
+        .block
+          .block-header
+            Contacts
+          .block-content
+            = render partial: 'uw/contacts/show', collection: @resource.contacts, as: :contact
+          .block-content
+            %a{href: '#',  data: { reflex: "click->ContactReflex#new", coverholder_id: @resource.id } } + Add new
+= render partial: 'uw/trading_location_addresses/modal_form', locals: {trading_location_address: @trading_location_address} if @trading_location_address
+= render partial: 'uw/registered_addresses/modal_form', locals: {registered_address: @registered_address} if @registered_address
+= render partial: 'uw/contacts/modal_form', locals: {contact: @contact} if @contact
+
+

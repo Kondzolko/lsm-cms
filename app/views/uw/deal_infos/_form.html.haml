@@ -1,0 +1,36 @@
+= simple_form_for [:uw, deal_info.deal.coverholder, deal_info.deal, deal_info], url: '#', html: { data: { reflex: "submit->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } } do |f|
+  .form-group
+    %label Legal entity name
+    .row
+      .col.justify-content-start
+        = @resource.coverholder.legal_entity_name
+      .col.justify-content-end
+        %a{class: 'float-right', href: '#', data: { reflex: 'click->CoverholderReflex#edit', signed_id: @resource.coverholder.to_sgid.to_s }} Edit
+  .form-group
+    %label Trading name
+    = render partial: 'uw/trading_names/show', collection: @resource.coverholder.trading_names, as: :trading_name
+    %a{href: '#', data: { reflex: 'click->TradingNameReflex#new', coverholder_id: @resource.coverholder_id }} + Add Trading Name
+  .form-group
+    %label Trading Location Address(es)
+    = render partial: 'uw/trading_location_addresses/show', collection: @resource.coverholder.trading_location_addresses, as: :address
+    %a{href: '#', data: { reflex: 'click->TradingLocationReflex#new', coverholder_id: @resource.coverholder_id }} + Add Trading Location
+  .form-group
+    %label Sponsoring underwriter(s)
+    %div.font-size-sm.pb-2
+      = @resource.underwriter.email
+      (You)
+    = render partial: 'uw/participating_underwriters/show', collection: @resource.participating_underwriters, as: :pu
+    %a{href: '#', data: { reflex: 'click->ParticipatingUnderwriterReflex#new' }} + Add Participating Underwriter
+
+  = f.input :lsm_platform_type, collection: Deal.lsm_platform_types.keys.map(&:to_sym), input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :has_davies_group_letter, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :lsm_new_products, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :ownership_details, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :broker_contact_name, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :broker_existing_binder_portfolio, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  = f.input :has_binding_authority_agreement_broker_name, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
+  - if deal_info.has_binding_authority_agreement_broker_name
+    = f.input :has_binding_authority_agreement_broker_name
+
+  .form-group
+    = f.submit 'Save', class: 'btn btn-success'

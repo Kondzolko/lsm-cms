@@ -1,0 +1,12 @@
+.modal{:style => "display:block", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title Coverholder
+        %button.close{"data-reflex" => "click->CoverholderReflex#default_reflex", :type => "button"}
+          %span ×
+      .modal-body
+        = simple_form_for [:uw, coverholder], url: '#', html: { data: { reflex: "submit->CoverholderReflex#submit", signed_id: coverholder.to_sgid.to_s } } do |f|
+          = f.input :legal_entity_name
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-link{"data-reflex" => "click->CoverholderReflex#default_reflex", :type => "button"} Cancel

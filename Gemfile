@@ -43,3 +43,4 @@ gem 'haml-rails'
 gem 'interactor-rails'
 gem 'pundit'
 gem 'simple_form'
+gem "stimulus_reflex", "~> 3.3"

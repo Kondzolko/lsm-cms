@@ -6,10 +6,9 @@ class Uw::CoverholdersController < Uw::ApplicationController
     authorize(@resource)
     result = Uw::Coverholders::Organizers::CreateCoverholder.call(coverholder: @resource)
     if result.success?
-      redirect_to new_uw_coverholder_registered_address_path(coverholder_id: @resource.id)
+      redirect_to uw_coverholder_registered_address_path(coverholder_id: @resource.id)
     else
       flash[:alert] = "Can't create new coverholder"
-      puts result.inspect
       render 'new'
     end
   end
@@ -19,7 +18,11 @@ class Uw::CoverholdersController < Uw::ApplicationController
     authorize @resource
     result = Uw::Coverholders::Organizers::UpdateCoverholder.call(coverholder: @resource, attributes: resource_params)
     if result.success?
-      redirect_to new_uw_coverholder_registered_address_path(coverholder_id: @resource.id)
+      if @resource.registered_address
+        redirect_to uw_coverholder_trading_location_addresses_path(coverholder_id: @resource.id)
+      else
+        redirect_to uw_coverholder_registered_address_path(coverholder_id: @resource.id)
+      end
     else
       flash[:alert] = "Can't update coverholder"
       render 'edit'

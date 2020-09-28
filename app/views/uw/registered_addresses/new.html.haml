@@ -11,3 +11,8 @@
         Add Registered Address
       .block-content
         = render partial: 'uw/registered_addresses/form', locals: { registered_address: @resource}
+      .block-content
+        -#.form-group
+          %span{data: { reflex: "click->TradingLocationAddressReflex#new" } } Add Trading Location Address
+        .form_actions
+          = link_to 'Back', edit_uw_coverholder_path(@resource.coverholder_id)

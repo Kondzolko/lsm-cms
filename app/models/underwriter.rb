@@ -3,4 +3,6 @@ class Underwriter < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, # :recoverable, # :registerable,
          :rememberable, :validatable, :trackable
+
+  has_many :deals
 end

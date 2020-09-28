@@ -1,0 +1,17 @@
+%address.font-size-sm
+  = address.address_line_1
+  %br
+  - if address.address_line_2
+    = address.address_line_2
+    %br
+  = address.zip
+  = address.city
+  %br
+  = address.state
+  %br
+  = address.country
+  %br
+  = address.phone
+  %br
+  %a{href: '#',  data: { reflex: "click->NewCoverholderReflex#edit_trading_location", id: address.id } } Edit
+  %a{href: '#',  data: { reflex: "click->NewCoverholderReflex#destroy_trading_location", id: address.id } } Delete

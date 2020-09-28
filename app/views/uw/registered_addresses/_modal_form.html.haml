@@ -1,0 +1,23 @@
+.modal{:style => "display:block", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title Edit Registered Address
+        %button.close{"data-reflex" => "click->NewCoverholderReflex#default_reflex", :type => "button"}
+          %span ×
+      .modal-body
+        = simple_form_for [:uw, :coverholder, registered_address], html: { data: { reflex: "submit->NewCoverholderReflex#submit_registered_address", id: registered_address.id } } do |f|
+          = f.input :country, as: :string
+          = f.input :address_line_1
+          = f.input :address_line_2
+          = f.input :state
+          .form-group.form-row
+            .col-8
+              = f.input :city
+            .col-4
+              = f.input :zip
+          = f.input :phone
+
+          = f.submit "Save", class: "btn btn-primary"
+          -#, disabled: trading_location_address.invalid?
+          %a{"data-reflex" => "click->NewCoverholderReflex#default_reflex", :type => "button"} Cancel

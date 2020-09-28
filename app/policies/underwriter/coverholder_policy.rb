@@ -22,6 +22,10 @@ class Underwriter::CoverholderPolicy
     create?
   end
 
+  def show?
+    true
+  end
+
   def update?
     resource.contracts.empty? # TODO: We need more complicated validation
   end

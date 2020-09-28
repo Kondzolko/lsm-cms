@@ -1,0 +1,52 @@
+.row
+  .col-12
+    .block
+      .block-content.row.pb-3
+        .col-6
+          %div Coverholder Onboarding
+          %div
+            %strong
+              = @resource.coverholder.legal_entity_name
+              = '-'
+              = @resource.id
+          %small Business case with Underwriter
+        .col-2
+          %div Date Started
+          %strong= l(@resource.created_at, format: :short)
+        .col-2
+          %div Last Update
+          %strong= l(@resource.created_at, format: :short)
+        .col-2
+          %div Total progress
+          %strong 1%
+.row
+  .col-6
+    .block.block-rounded
+      .block-header.block-header-default
+        %h3.block-title Business Case
+      .block-content
+        %table.table
+          %tbody
+            %tr
+              %td
+                General Info
+              %td
+                In Progress
+              %td
+            %tr
+              %td
+                Contact Details
+              %td
+                In Progress
+              %td
+            %tr
+              %td
+                ICRA
+              %td
+                In Progress
+              %td
+  -#.col-4
+  -#.col-2
+  -#  .block
+  -#    .block-content
+  -#      %strong Teams

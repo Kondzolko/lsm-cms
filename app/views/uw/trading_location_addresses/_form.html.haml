@@ -1,0 +1,22 @@
+= simple_form_for [:uw, :coverholder, trading_location_address] do |f|
+  = f.input :country, as: :string
+  = f.input :address_line_1
+  = f.input :address_line_2
+  = f.input :state
+  .form-group.form-row
+    .col-8
+      = f.input :city
+    .col-4
+      = f.input :zip
+  = f.input :phone
+  .form-group
+    = f.submit 'Save', class: 'btn btn-success'
+  .form-group
+    = link_to 'Create Coverholder', uw_coverholder_path(trading_location_address.coverholder), class: 'btn btn-success'
+-#  .form-group
+-#    = link_to 'Cancel', uw_root_path
+-#  .form-group
+-#    %span{data: { reflex: "click->TradingLocationAddressReflex#new" } } Add Trading Location Address
+-#  .form_actions
+-#    = link_to 'Back', edit_uw_coverholder_path(registered_address.coverholder_id)
+-#= render partial: 'uw/trading_location_addresses/modal_form', locals: {trading_location_address: @trading_location_address} if @trading_location_address
