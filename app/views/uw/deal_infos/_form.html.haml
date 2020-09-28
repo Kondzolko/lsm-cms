@@ -29,8 +29,6 @@
   = f.input :broker_contact_name, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
   = f.input :broker_existing_binder_portfolio, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
   = f.input :has_binding_authority_agreement_broker_name, input_html: { data: { reflex: "change->DealInfoReflex#submit", signed_id: deal_info.to_sgid.to_s } }
-  - if deal_info.has_binding_authority_agreement_broker_name
-    = f.input :has_binding_authority_agreement_broker_name
 
   .form-group
     = f.submit 'Save', class: 'btn btn-success'
