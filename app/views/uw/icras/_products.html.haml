@@ -14,9 +14,10 @@
           %label.string.required{:for => "icra_products_attributes_#{index}_name"}
             Name
             %abbr{:title => "required"} *
-          %input.form-control.string.required{id: "icra_products_attributes_#{index}_name", name: "icra[products_attributes][#{index}][name]", type: "text"}
+          %input.form-control.string.required{value: product.name, id: "icra_products_attributes_#{index}_name", name: "icra[products_attributes][#{index}][name]", type: "text"}
         .form-group.string.required.icra_products_description
           %label.string.required{:for => "icra_products_attributes_#{index}_description"}
             Description
             %abbr{:title => "required"} *
           %textarea.form-control.string.required{id: "icra_products_attributes_#{index}_description", name: "icra[products_attributes][#{index}][description]", type: "text"}
+            = product.description
