@@ -18,6 +18,14 @@ class Uw::DealsController < Uw::ApplicationController
   def icra
     load_resource
     authorize @resource
+    @icra ||= @resource.icra
+
+    @products ||= @icra.products
+    unless @stimulus_reflex
+      session[:icra] ||= {}
+      session[:icra][@icra.id] ||= {}
+      session[:icra][@icra.id]['products'] = @products.map(&:attributes)
+    end
   end
 
   def create

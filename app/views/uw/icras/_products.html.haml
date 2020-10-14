@@ -1,0 +1,22 @@
+#products
+  %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
+    - products.each_with_index do |product, index|
+      %li.nav-item
+        %a.nav-link{class: ('active' if index.zero?), id: "product#{index}", "data-toggle" => "pill", :href => "#products#{index}", :role => "tab"} Product #{index + 1}
+  #pills-tabContent.tab-content
+    - products.each_with_index do |product, index|
+      .tab-pane.fade{id: "products#{index}", class: ('active show' if index.zero?), :role => "tabpanel"}
+        - if product.errors.present?
+          %ul
+            - product.errors.messages.each do |message|
+              %li= "#{message[0]} #{message[1][0]}"
+        .form-group.string.required.icra_products_name
+          %label.string.required{:for => "icra_products_attributes_#{index}_name"}
+            Name
+            %abbr{:title => "required"} *
+          %input.form-control.string.required{id: "icra_products_attributes_#{index}_name", name: "icra[products_attributes][#{index}][name]", type: "text"}
+        .form-group.string.required.icra_products_description
+          %label.string.required{:for => "icra_products_attributes_#{index}_description"}
+            Description
+            %abbr{:title => "required"} *
+          %textarea.form-control.string.required{id: "icra_products_attributes_#{index}_description", name: "icra[products_attributes][#{index}][description]", type: "text"}

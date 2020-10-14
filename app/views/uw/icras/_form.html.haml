@@ -1,0 +1,10 @@
+= simple_form_for [:uw, icra.deal.coverholder, icra.deal, icra], url: '#', html: { data: { reflex: "submit->IcraReflex#submit", signed_id: icra.to_sgid.to_s } } do |f|
+
+  = f.input :baa, input_html: { data: { reflex: "change->IcraReflex#submit", signed_id: icra.to_sgid.to_s } }
+  = f.input :general_aviation_hull, input_html: { data: { reflex: "change->IcraReflex#submit", signed_id: icra.to_sgid.to_s } }
+  = f.input :general_aviation_liabillity, input_html: { data: { reflex: "change->IcraReflex#submit", signed_id: icra.to_sgid.to_s } }
+
+  = render partial: 'uw/icras/products', locals: {f: f, products: @products}
+  %a{href: '#', data: { reflex: 'click->Icras::ProductReflex#add', signed_id: icra.to_sgid.to_s }} + Add New Product
+  .form-group
+    = f.submit 'Save', class: 'btn btn-success'
